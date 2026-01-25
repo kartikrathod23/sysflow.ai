@@ -1,0 +1,27 @@
+{
+  "name": "sysflow.ai-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend/api-gateway",
+    "backend/simulation-engine",
+    "backend/metrics-service",
+    "backend/ai-worker",
+    "backend/shared",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev --workspace=backend/api-gateway",
+    "dev:sim": "npm run dev --workspace=backend/simulation-engine",
+    "dev:metrics": "npm run dev --workspace=backend/metrics-service",
+    "dev:ai": "npm run dev --workspace=backend/ai-worker",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build:all": "npm run build --workspaces",
+    "test:all": "npm run test --workspaces"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "prettier": "^3.1.0",
+    "eslint": "^8.55.0"
+  }
+}
