@@ -1,7 +1,7 @@
 exports.up = (pgm) => {
   pgm.createExtension('uuid-ossp', { ifNotExists: true });
 
-  pgm.createType('workspace_role', ['OWNER', 'EDITOR', 'VIEWER']);
+  pgm.createType('workspace_role', ['OWNER', 'EDITOR', 'VIEWER', 'ADMIN']);
   pgm.createType('simulation_status', ['QUEUED', 'RUNNING', 'COMPLETED', 'FAILED']);
   pgm.createType('ai_review_type', ['ARCHITECTURE_REVIEW', 'BOTTLENECK_ANALYSIS', 'INFRA_CODE']);
 
