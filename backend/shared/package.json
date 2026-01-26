@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
     "migrate:create": "node-pg-migrate create",
     "migrate:up": "node-pg-migrate up -m migrations",
     "migrate:down": "node-pg-migrate down -m migrations",
@@ -16,10 +18,12 @@
     "bcrypt": "^6.0.0",
     "dotenv": "^17.2.3",
     "ioredis": "^5.9.2",
+    "jsonwebtoken": "^9.0.3",
     "node-pg-migrate": "^8.0.4",
     "pg": "^8.17.2"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/pg": "^8.16.0"
   }
 }
