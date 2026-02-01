@@ -1,6 +1,6 @@
 // Types
 export * from './types';
-
+export * from './redis/simulationQueue';
 // Database
 export { pool, query } from './db/pool';
 

@@ -8,9 +8,9 @@ export async function publishToRoom(designId : string, message: string){
     await pub.publish(channel, message);
 }
 
-export function subscribeToRoom(designId : string, handler: (msg: string) => void){
-    const channel = `design_${designId}`;
-    sub.subscribe(channel, (err, count) => {
+export function subscribeToAllDesignEvents(handler: (channel: string, message: any) => void){
+    // const channel = `design_${designId}`;
+    sub.psubscribe("design_*", (err, count) => {
         if (err) {
             console.error('Failed to subscribe: ', err);
             return;
@@ -18,9 +18,7 @@ export function subscribeToRoom(designId : string, handler: (msg: string) => voi
         console.log(`Subscribed successfully! This client is currently subscribed to ${count} channels.`);
     });
 
-    sub.on('message', (ch, message) => {
-        if (ch === channel) {
-            handler(JSON.parse(message));
-        }
+    sub.on('pmessage', (_,channel, message) => {
+        handler(channel,JSON.parse(message));
     });
 }
